@@ -1,0 +1,27 @@
+{
+  "soul": {
+    "requiredSections": [
+      "Identity",
+      "Purpose",
+      "Personality",
+      "Core Values",
+      "Behavioral Guidelines"
+    ],
+    "minSections": 5,
+    "maxLength": 10000,
+    "minLength": 200
+  },
+  "style": {
+    "requiredSections": [
+      "Tone",
+      "Voice",
+      "Formatting",
+      "Communication Patterns"
+    ],
+    "minSections": 4,
+    "maxLength": 8000,
+    "minLength": 150
+  },
+  "agentTypes": ["developer", "assistant", "automation"],
+  "tones": ["professional", "friendly", "technical", "casual"]
+}

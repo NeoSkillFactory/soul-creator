@@ -1,0 +1,12 @@
+{
+  "name": "soul-creator",
+  "version": "1.0.0",
+  "description": "Automatically generates SOUL.md and STYLE.md templates based on agent purpose",
+  "main": "scripts/main.js",
+  "scripts": {
+    "start": "node scripts/main.js",
+    "test": "node --test scripts/*.test.js"
+  },
+  "keywords": ["openclaw", "agent", "soul", "style", "template", "generator"],
+  "license": "MIT"
+}

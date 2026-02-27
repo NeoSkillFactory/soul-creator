@@ -1,0 +1,23 @@
+{
+  "defaultAgentType": "developer",
+  "defaultTone": "professional",
+  "defaultOutputDir": "./output",
+  "templateVersion": "1.0.0",
+  "sections": {
+    "soul": {
+      "identity": true,
+      "purpose": true,
+      "personality": true,
+      "coreValues": true,
+      "behavioralGuidelines": true,
+      "interactionPatterns": true
+    },
+    "style": {
+      "tone": true,
+      "voice": true,
+      "formatting": true,
+      "communicationPatterns": true,
+      "exampleResponses": true
+    }
+  }
+}
