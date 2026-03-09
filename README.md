@@ -2,26 +2,36 @@
 
 ![Audit](https://img.shields.io/badge/audit%3A%20PASS-brightgreen) ![License](https://img.shields.io/badge/license-MIT-blue) ![OpenClaw](https://img.shields.io/badge/OpenClaw-skill-orange)
 
-> A skill that automatically generates SOUL.md and STYLE.md templates based on agent purpose to eliminate 30-60 minutes of manual setup work
+> Automatically generates SOUL.md and STYLE.md templates based on agent purpose to eliminate manual setup work.
 
-I don't have context about what you were working on previously. Could you tell me:
+## Features
 
-1. What task you were trying to complete
-2. What specifically failed or timed out
-3. What you'd like me to continue with
+- Generate customized SOUL.md templates based on agent purpose and personality
+- Create STYLE.md files with appropriate writing tones and voice guidelines
+- Provide interactive prompts to refine agent identity and style preferences
+- Validate generated templates against OpenClaw standards
+- Export templates directly to workspace
+- Support multiple agent types (developer, assistant, automation)
+- Include examples and best practices for each agent type
 
-This will help me pick up where you left off without starting over.
-
-## OpenClaw Marketplace
-
-This skill is available on [ClawHub](https://clawhub.ai) — the OpenClaw skill marketplace.
-Install it in any OpenClaw agent workspace with:
+## Usage
 
 ```bash
-clawhub install soul-creator
+# Interactive mode
+node scripts/main.js
+
+# Direct mode
+node scripts/main.js --type developer --purpose "A coding assistant that helps with Python"
+
+# With output directory
+node scripts/main.js --type assistant --purpose "Customer support bot" --output ./my-agent
 ```
 
-**Recommended price when commercial:** $18 USD
+## GitHub
+
+Source code: [github.com/NeoSkillFactory/soul-creator](https://github.com/NeoSkillFactory/soul-creator)
+
+**Price suggestion:** $18 USD
 
 ## License
 
