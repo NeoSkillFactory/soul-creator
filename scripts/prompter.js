@@ -7,7 +7,7 @@ function parseArgs(argv) {
     if (arg.startsWith("--")) {
       const key = arg.slice(2);
       const next = argv[i + 1];
-      if (next && !next.startsWith("--")) {
+      if (next !== undefined && !next.startsWith("--")) {
         args[key] = next;
         i++;
       } else {

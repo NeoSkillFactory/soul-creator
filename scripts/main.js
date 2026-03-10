@@ -57,6 +57,8 @@ async function main() {
 }
 
 function deriveAgentName(purpose) {
+  if (!purpose || typeof purpose !== "string") return "Agent";
+
   const words = purpose
     .replace(/[^a-zA-Z0-9\s]/g, "")
     .split(/\s+/)

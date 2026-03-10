@@ -188,6 +188,61 @@ describe("exporter", () => {
   });
 });
 
+// --- edge case tests ---
+
+describe("edge cases", () => {
+  it("parseArgs handles empty string values", () => {
+    const args = parseArgs(["--purpose", ""]);
+    assert.equal(args.purpose, "");
+  });
+
+  it("parseArgs handles flag without value at end of argv", () => {
+    const args = parseArgs(["--verbose"]);
+    assert.equal(args.verbose, true);
+  });
+
+  it("parseArgs handles flag followed by another flag", () => {
+    const args = parseArgs(["--verbose", "--type", "developer"]);
+    assert.equal(args.verbose, true);
+    assert.equal(args.type, "developer");
+  });
+
+  it("generates valid templates for all type/tone combinations", () => {
+    const types = ["developer", "assistant", "automation"];
+    const tones = ["professional", "friendly", "technical", "casual"];
+
+    for (const agentType of types) {
+      for (const tone of tones) {
+        const result = generateTemplates({ agentType, name: "TestAgent", purpose: "Test purpose", tone });
+        const soulResult = validate(result.soul, "soul");
+        const styleResult = validate(result.style, "style");
+        assert.ok(soulResult.valid, `SOUL failed for ${agentType}/${tone}: ${soulResult.errors.join(", ")}`);
+        assert.ok(styleResult.valid, `STYLE failed for ${agentType}/${tone}: ${styleResult.errors.join(", ")}`);
+      }
+    }
+  });
+
+  it("validates content exceeding max length", () => {
+    const longContent = "## Identity\n## Purpose\n## Personality\n## Core Values\n## Behavioral Guidelines\n" + "x".repeat(11000);
+    const result = validate(longContent, "soul");
+    assert.ok(!result.valid);
+    assert.ok(result.errors.some((e) => e.includes("too long")));
+  });
+
+  it("loadReferenceTemplate throws for unknown type", () => {
+    assert.throws(() => {
+      loadReferenceTemplate("unknown");
+    }, /Unknown agent type/);
+  });
+
+  it("style guide includes agent context section", () => {
+    const style = generateStyle({ agentType: "assistant", name: "Bot", purpose: "Help", tone: "casual" });
+    assert.ok(style.includes("## Agent Context"));
+    assert.ok(style.includes("assistant"));
+    assert.ok(style.includes("Casual"));
+  });
+});
+
 // --- CLI integration test ---
 
 describe("CLI integration", () => {

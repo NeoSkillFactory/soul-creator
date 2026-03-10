@@ -13,11 +13,11 @@ soul-creator automates the creation of SOUL.md and STYLE.md files for OpenClaw a
 
 - Generate customized SOUL.md templates based on agent purpose and personality
 - Create STYLE.md files with appropriate writing tones and voice guidelines
-- Provide interactive prompts to refine agent identity and style preferences
 - Validate generated templates against OpenClaw standards
 - Export templates directly to workspace
 - Support multiple agent types (developer, assistant, automation)
-- Include examples and best practices for each agent type
+- Four tone profiles (professional, friendly, technical, casual)
+- Zero external dependencies
 
 ## Triggers
 
@@ -39,12 +39,12 @@ Both files are generated as Markdown and written directly to the specified outpu
 ## Usage
 
 ```bash
-# Interactive mode
-node scripts/main.js
+# With defaults (developer type, professional tone)
+node scripts/main.js --purpose "A coding assistant that helps with Python"
 
-# Direct mode
-node scripts/main.js --type developer --purpose "A coding assistant that helps with Python"
+# Specify type, tone, and output directory
+node scripts/main.js --type assistant --purpose "Customer support bot" --tone friendly --output ./my-agent
 
-# With output directory
-node scripts/main.js --type assistant --purpose "Customer support bot" --output ./my-agent
+# Automation agent
+node scripts/main.js --type automation --purpose "CI/CD pipeline manager" --tone technical --output ./deployer
 ```
