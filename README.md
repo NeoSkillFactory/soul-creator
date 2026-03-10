@@ -31,8 +31,6 @@ node scripts/main.js --type automation --purpose "CI/CD pipeline manager" --tone
 
 Source code: [github.com/NeoSkillFactory/soul-creator](https://github.com/NeoSkillFactory/soul-creator)
 
-**Price suggestion:** $18 USD
-
 ## License
 
 MIT © NeoSkillFactory
